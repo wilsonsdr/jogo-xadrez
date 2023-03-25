@@ -6,7 +6,10 @@ global using global::System.Net.Http;
 global using global::System.Threading;
 global using global::System.Threading.Tasks;
 using tabuleiro;
+using xadrez_console;
 
-Tabuleiro tab = new Tabuleiro(8, 9);
+Tabuleiro tab = new Tabuleiro(8, 8);
+
+Tela.ImprimirTabuleiro(tab);
 
 Console.WriteLine();
