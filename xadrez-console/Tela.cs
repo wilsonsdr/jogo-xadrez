@@ -2,7 +2,7 @@
 
 namespace xadrez_console
 {
-    internal class Tela
+     class Tela
     {
         public static void ImprimirTabuleiro(Tabuleiro tab)
         {

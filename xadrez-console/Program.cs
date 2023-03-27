@@ -7,8 +7,13 @@ global using global::System.Threading;
 global using global::System.Threading.Tasks;
 using tabuleiro;
 using xadrez_console;
+using xadrez;
 
 Tabuleiro tab = new Tabuleiro(8, 8);
+
+tab.ColocarPeca(new Torre(tab, Cor.Preta), new Posicao(0, 1));
+
+tab.ColocarPeca(new Rei(tab, Cor.Preta), new Posicao(2, 4));
 
 Tela.ImprimirTabuleiro(tab);
 
