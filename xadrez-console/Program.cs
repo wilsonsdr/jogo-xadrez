@@ -5,16 +5,26 @@ global using global::System.Linq;
 global using global::System.Net.Http;
 global using global::System.Threading;
 global using global::System.Threading.Tasks;
+using System.Globalization;
 using tabuleiro;
 using xadrez_console;
 using xadrez;
 
-Tabuleiro tab = new Tabuleiro(8, 8);
 
-tab.ColocarPeca(new Torre(tab, Cor.Preta), new Posicao(0, 1));
+try
+{
+    Tabuleiro tab = new Tabuleiro(8, 8);
 
-tab.ColocarPeca(new Rei(tab, Cor.Preta), new Posicao(2, 4));
+    tab.ColocarPeca(new Torre(tab, Cor.Preta), new Posicao(0, 1));
 
-Tela.ImprimirTabuleiro(tab);
+    tab.ColocarPeca(new Rei(tab, Cor.Preta), new Posicao(0, 9));
 
-Console.WriteLine();
+    Tela.ImprimirTabuleiro(tab);
+
+    Console.WriteLine();
+}
+catch (TabuleiroException e) {
+    Console.WriteLine(e.Message);
+}
+
+
