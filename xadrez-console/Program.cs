@@ -11,20 +11,10 @@ using xadrez_console;
 using xadrez;
 
 
-try
-{
-    Tabuleiro tab = new Tabuleiro(8, 8);
+PosicaoXadrez pos = new PosicaoXadrez('a', 1);
 
-    tab.ColocarPeca(new Torre(tab, Cor.Preta), new Posicao(0, 1));
+Console.WriteLine(pos);
 
-    tab.ColocarPeca(new Rei(tab, Cor.Preta), new Posicao(0, 9));
-
-    Tela.ImprimirTabuleiro(tab);
-
-    Console.WriteLine();
-}
-catch (TabuleiroException e) {
-    Console.WriteLine(e.Message);
-}
+Console.WriteLine(pos.ConverterPosicao());
 
 
