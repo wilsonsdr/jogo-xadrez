@@ -11,10 +11,31 @@ using xadrez_console;
 using xadrez;
 
 
-PosicaoXadrez pos = new PosicaoXadrez('a', 1);
+try
+{
+    PartidaXadrez partida = new PartidaXadrez();
 
-Console.WriteLine(pos);
+    while(!partida.Terminada)
+    {
+        Console.Clear();
+        Tela.ImprimirTabuleiro(partida.Tab);
 
-Console.WriteLine(pos.ConverterPosicao());
+        Console.WriteLine();
+
+        Console.Write("\nOrigem: ");
+        Posicao origem = Tela.LerPosicaoXadrez().ConverterPosicao();
+        Console.Write("Destino: ");
+        Posicao destino = Tela.LerPosicaoXadrez().ConverterPosicao();
+
+        partida.ExecutaMovimento(origem, destino);
+    }
+
+    Tela.ImprimirTabuleiro(partida.Tab);
+}
+
+catch(TabuleiroException e)
+{
+    Console.WriteLine(e.Message);
+}
 
 
