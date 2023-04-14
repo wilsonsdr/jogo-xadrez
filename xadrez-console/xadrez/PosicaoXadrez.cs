@@ -2,7 +2,7 @@
 
 namespace xadrez
 {
-    class PosicaoXadrez
+    internal class PosicaoXadrez
     {
         public char Coluna { get; set; }
         public int Linha { get; set; }

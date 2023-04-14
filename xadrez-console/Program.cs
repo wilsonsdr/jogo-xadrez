@@ -1,21 +1,13 @@
 ﻿global using global::System;
-global using global::System.Collections.Generic;
-global using global::System.IO;
-global using global::System.Linq;
-global using global::System.Net.Http;
-global using global::System.Threading;
-global using global::System.Threading.Tasks;
-using System.Globalization;
 using tabuleiro;
-using xadrez_console;
 using xadrez;
-
+using xadrez_console;
 
 try
 {
     PartidaXadrez partida = new PartidaXadrez();
 
-    while(!partida.Terminada)
+    while (!partida.Terminada)
     {
         Console.Clear();
         Tela.ImprimirTabuleiro(partida.Tab);
@@ -24,7 +16,15 @@ try
 
         Console.Write("\nOrigem: ");
         Posicao origem = Tela.LerPosicaoXadrez().ConverterPosicao();
-        Console.Write("Destino: ");
+
+        bool[,] posicoesPossives = partida.Tab.Peca(origem).MovimentosPossiveis();
+
+        Console.Clear();
+        Tela.ImprimirTabuleiro(partida.Tab, posicoesPossives);
+
+        Console.WriteLine();
+
+        Console.Write("\nDestino: ");
         Posicao destino = Tela.LerPosicaoXadrez().ConverterPosicao();
 
         partida.ExecutaMovimento(origem, destino);
@@ -32,10 +32,7 @@ try
 
     Tela.ImprimirTabuleiro(partida.Tab);
 }
-
-catch(TabuleiroException e)
+catch (TabuleiroException e)
 {
     Console.WriteLine(e.Message);
 }
-
-

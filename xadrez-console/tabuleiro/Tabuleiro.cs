@@ -1,6 +1,6 @@
 ﻿namespace tabuleiro
 {
-     class Tabuleiro
+    internal class Tabuleiro
     {
         public int Linhas { get; set; }
         public int Colunas { get; set; }
@@ -42,7 +42,7 @@
 
         public Peca RetirarPeca(Posicao pos)
         {
-            if(Peca(pos) == null)
+            if (Peca(pos) == null)
             {
                 return null;
             }
@@ -54,7 +54,7 @@
 
         public bool PosicaoValida(Posicao pos)
         {
-            if(pos.Linha < 0 || pos.Linha >= Linhas || pos.Coluna < 0 || pos.Coluna >= Colunas)
+            if (pos.Linha < 0 || pos.Linha >= Linhas || pos.Coluna < 0 || pos.Coluna >= Colunas)
             {
                 return false;
             }
@@ -63,12 +63,10 @@
 
         public void ValidarPosicao(Posicao pos)
         {
-            if(!PosicaoValida(pos))
+            if (!PosicaoValida(pos))
             {
                 throw new TabuleiroException("Posição inválida!");
             }
         }
     }
 }
-    
-
