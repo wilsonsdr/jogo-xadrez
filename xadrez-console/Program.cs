@@ -9,28 +9,39 @@ try
 
     while (!partida.Terminada)
     {
-        Console.Clear();
-        Tela.ImprimirTabuleiro(partida.Tab);
+        try
+        {
+            Console.Clear();
+            Tela.ImprimirTabuleiro(partida.Tab);
 
-        Console.WriteLine();
+            Console.WriteLine();
 
-        Console.Write("\nOrigem: ");
-        Posicao origem = Tela.LerPosicaoXadrez().ConverterPosicao();
+            Console.WriteLine($"\nTurno: {partida.Turno}");
+            Console.WriteLine($"Aguardando jogada: {partida.JogadorAtual}");
 
-        bool[,] posicoesPossives = partida.Tab.Peca(origem).MovimentosPossiveis();
+            Console.Write("\nOrigem: ");
+            Posicao origem = Tela.LerPosicaoXadrez().ConverterPosicao();
+            partida.ValidarPosicaoOrigem(origem);
 
-        Console.Clear();
-        Tela.ImprimirTabuleiro(partida.Tab, posicoesPossives);
+            bool[,] posicoesPossives = partida.Tab.Peca(origem).MovimentosPossiveis();
 
-        Console.WriteLine();
+            Console.Clear();
+            Tela.ImprimirTabuleiro(partida.Tab, posicoesPossives);
 
-        Console.Write("\nDestino: ");
-        Posicao destino = Tela.LerPosicaoXadrez().ConverterPosicao();
+            Console.WriteLine();
 
-        partida.ExecutaMovimento(origem, destino);
+            Console.Write("\nDestino: ");
+            Posicao destino = Tela.LerPosicaoXadrez().ConverterPosicao();
+            partida.ValidarPosicaoDestino(origem, destino);
+
+            partida.RealizaJogada(origem, destino);
+        }
+        catch (TabuleiroException e)
+        {
+            Console.WriteLine(e.Message);
+            Console.ReadLine();
+        }
     }
-
-    Tela.ImprimirTabuleiro(partida.Tab);
 }
 catch (TabuleiroException e)
 {
