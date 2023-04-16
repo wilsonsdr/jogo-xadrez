@@ -30,7 +30,7 @@ try
             Posicao destino = Tela.LerPosicaoXadrez().ConverterPosicao();
             partida.ValidarPosicaoDestino(origem, destino);
 
-            partida.RealizaJogada(origem, destino);
+            partida.RealizarJogada(origem, destino);
         }
         catch (TabuleiroException e)
         {
