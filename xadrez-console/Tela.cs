@@ -15,11 +15,19 @@ namespace xadrez_console
             Console.WriteLine();
 
             Console.WriteLine($"\nTurno: {partida.Turno}");
-            Console.WriteLine($"Aguardando jogada: {partida.JogadorAtual}");
 
-            if (partida.Xeque)
+            if (!partida.Terminada)
             {
-                Console.WriteLine("Xeque!");
+                Console.WriteLine($"Aguardando jogada: {partida.JogadorAtual}");
+
+                if (partida.Xeque)
+                {
+                    Console.WriteLine("XEQUE!");
+                }
+            } else
+            {
+                Console.WriteLine("XEQUEMATE!");
+                Console.WriteLine($"O vencedor foi: {partida.JogadorAtual}");
             }
         }
 
@@ -44,6 +52,7 @@ namespace xadrez_console
             }
             Console.Write("]");
         }
+
         public static void ImprimirTabuleiro(Tabuleiro tab)
 
         {
