@@ -20,7 +20,7 @@ O comando dotnet run irá executar o programa.
 
 Aqui estão algumas das tecnologia(s) que utilizei para desenvolver meu projeto:
 
-- .NET
+- .NET Core
 
 ### Autor
 
