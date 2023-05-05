@@ -1,5 +1,4 @@
-﻿global using global::System;
-using tabuleiro;
+﻿using tabuleiro;
 using xadrez;
 using xadrez_console;
 
